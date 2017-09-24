@@ -83,7 +83,7 @@ function System(p5) {
             var letterToPrint = wordArray[i];
 
             function loadLetter(index, letterToPrint) {
-                $.getJSON("/sketch/letters/" + letterToPrint.toUpperCase() + ".json", function (data) {
+                $.getJSON(location.href + "sketch/letters/" + letterToPrint.toUpperCase() + ".json", function (data) {
                     wordLetterArray.push(new LetterParticle(p5, index, data));
                     loadCount++;
                     //console.log("Letter file loaded", data, index, loadCount);
