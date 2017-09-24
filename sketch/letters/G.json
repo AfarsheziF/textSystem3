@@ -1,0 +1,36 @@
+{
+  "name": "G",
+  "gridCount": 3,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 0,
+      "rel": 1
+    },
+    {
+      "index": 1,
+      "gridIndex": 3,
+      "rel": ""
+    },
+    {
+      "index": 2,
+      "gridIndex": 10,
+      "rel": 3
+    },
+    {
+      "index": 3,
+      "gridIndex": 11,
+      "rel": 5
+    },
+    {
+      "index": 4,
+      "gridIndex": 16,
+      "rel": 0
+    },
+    {
+      "index": 5,
+      "gridIndex": 19,
+      "rel": 4
+    }
+  ]
+}

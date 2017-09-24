@@ -1,0 +1,21 @@
+{
+  "name": "L",
+  "gridCount": 3,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 0,
+      "rel": 1
+    },
+    {
+      "index": 1,
+      "gridIndex": 16,
+      "rel": 2
+    },
+    {
+      "index": 2,
+      "gridIndex": 19,
+      "rel": ""
+    }
+  ]
+}
