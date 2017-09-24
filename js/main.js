@@ -9,7 +9,7 @@ function execute() {
     var skatchDiv = document.getElementById("sketch-holder");
 
     skatchWidth = skatchDiv.offsetWidth;
-    skatchHeight = 720;
+    skatchHeight = skatchDiv.offsetHeight;
     console.log("Div size", skatchWidth, skatchHeight);
     skatch = new p5(mySketch);
 }
