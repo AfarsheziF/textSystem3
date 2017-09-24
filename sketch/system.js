@@ -73,24 +73,34 @@ function System(p5) {
     }
 
     this.printWord = function (index, word, sentenceSize, thisSentence) {
-        //console.log("printWord", word);
         var wordLetterArray = [];
         var wordArray = word.split("");
         var p5 = this.p5;
         var loadCount = 0;
 
+        //console.log("printWord", wordArray);
+
         for (var i = 0; i < wordArray.length; i++) {
             var letterToPrint = wordArray[i];
 
             function loadLetter(index, letterToPrint) {
-                $.getJSON(location.href + "sketch/letters/" + letterToPrint.toUpperCase() + ".json", function (data) {
-                    wordLetterArray.push(new LetterParticle(p5, index, data));
-                    loadCount++;
-                    //console.log("Letter file loaded", data, index, loadCount);
-                    if (loadCount === wordArray.length) {
-                        setWord();
-                    };
-                });
+
+                var address = location.href + "sketch/letters/";
+                if (location.href.indexOf("http://localhost") !== -1) {
+                    address = "../sketch/letters/";
+                }
+
+                if (fileExists((address + letterToPrint.toUpperCase() + ".json"))) {
+                    $.getJSON(address + letterToPrint.toUpperCase() + ".json",
+                        function (data) {
+                            wordLetterArray.push(new LetterParticle(p5, index, data));
+                            loadCount++;
+                            //console.log("Letter file loaded", data, index, loadCount);
+                            if (loadCount === wordArray.length) {
+                                setWord();
+                            };
+                        });
+                }
             }
 
             loadLetter(i, letterToPrint);
@@ -130,13 +140,14 @@ function System(p5) {
         wordsCount = 0;
 
         if (sentence.indexOf(" ") < 0) {
-            this.printWord(0, sentence, 0, thisSentence);
-        } else {
-            var senArray = sentence.split(" ");
-            for (var i = 0; i < senArray.length; i++) {
-                this.printWord(i, senArray[i], senArray.length, thisSentence);
-            }
+            sentence = sentence + " ";
         }
+
+        var senArray = sentence.split(" ");
+        for (var i = 0; i < senArray.length; i++) {
+            this.printWord(i, senArray[i], senArray.length, thisSentence);
+        }
+
     }
 
     this.setSetntence = function () {
@@ -321,4 +332,11 @@ function System(p5) {
         this.p5.text("X: " + initialStartingPoint.x + " Y: " + initialStartingPoint.y,
             initialStartingPoint.x, initialStartingPoint.y - 10);
     }
+}
+
+function fileExists(url) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status !== 404;
 }

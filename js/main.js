@@ -30,7 +30,7 @@ window.onresize = function (event) {
 
 window.addEventListener('message', function (event) {
 
-    console.log("Incoming message", event);
+    //console.log("Incoming message", event);
     var messegeObj = event.data;
 
     switch (messegeObj.order) {
