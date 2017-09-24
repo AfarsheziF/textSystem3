@@ -37,7 +37,10 @@ window.addEventListener('message', function (event) {
         case "printThisPoem":
             skatch.system.printThisPoem(messegeObj.data);
             break;
-        default:
+
+        case "setSpringForce":
+            globalVar.springForce = messegeObj.data;
+            break;
     }
 
     //// IMPORTANT: Check the origin of the data! 
