@@ -31,6 +31,14 @@ window.onresize = function (event) {
 window.addEventListener('message', function (event) {
 
     console.log("Incoming message", event);
+    var messegeObj = event.data;
+
+    switch (messegeObj.order) {
+        case "printThisPoem":
+            skatch.system.printThisPoem(messegeObj.data);
+            break;
+        default:
+    }
 
     //// IMPORTANT: Check the origin of the data! 
     //if (~event.origin.indexOf('http://yoursite.com')) {
