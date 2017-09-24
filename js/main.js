@@ -21,6 +21,7 @@ function startSystem() {
 
 window.onresize = function (event) {
     var skatchDiv = document.getElementById("sketch-holder");
+    skatchHeight = skatchDiv.offsetHeight;
     skatchWidth = skatchDiv.offsetWidth;
 };
 
