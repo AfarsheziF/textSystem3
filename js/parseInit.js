@@ -9,7 +9,9 @@ Parse.serverURL = 'https://pg-app-1cltxnshjksg0clafdwxiw4ark8dvr.scalabl.cloud/1
 var data;
 var activeObject;
 
-loadObject();
+$(document).ready(function () {
+    loadObject();
+});
 
 function loadObject() {
     var query = new Parse.Query("Uncertainty");
