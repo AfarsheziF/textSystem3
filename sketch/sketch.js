@@ -16,21 +16,16 @@ var mySketch = function (p) {
         p.physics.setWorldBounds(p.rect(0, 0, p.width, p.height));
 
         p.system = new System(p);
+        p.background(globalVar.backgroundColor);
 
     }
 
     //-----DRAW-----//
     p.draw = function () {
-        //p.background(200);
         p.fill(globalVar.backgroundColor, 100);
         p.stroke(0);
-        p.strokeWeight(5);
+        p.strokeWeight(0);
         p.rect(0, 0, p.width, p.height);
-
-        p.textSize(globalVar.textSize);
-        p.fill(255);
-        p.strokeWeight(5);
-        p.text(input, globalVar.textSize + 10, globalVar.textSize + 30);
 
         p.physics.update();
 
