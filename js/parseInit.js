@@ -10,7 +10,8 @@ var data;
 var activeObject;
 
 $(document).ready(function () {
-    loadObject();
+    //loadObject();
+    execute();
 });
 
 function loadObject() {
@@ -21,7 +22,7 @@ function loadObject() {
             data = results;
             setActiveObject(0);
             console.log("Uncertainty data:", data);
-            execute();
+            //execute();
         }, function (error) {
             console.log(error);
         }
