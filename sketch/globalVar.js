@@ -5,7 +5,7 @@ function GlobalVar() {
     this.particleRadius = 0.5;
     this.particleJitter = 0;
 
-    this.springForce = 0.0001;
+    this.springForce = 0.0005;
 
     this.particleForceManupulation = 0.5;
     this.particleForceMinimum = 0.000000000001;
