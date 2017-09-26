@@ -2,10 +2,10 @@
 function GlobalVar() {
 
     this.particleForce = -0.2;
-    this.particleRadius = 10;
+    this.particleRadius = 0.5;
     this.particleJitter = 0;
 
-    this.springForce = 0.005;
+    this.springForce = 0.0001;
 
     this.particleForceManupulation = 0.5;
     this.particleForceMinimum = 0.000000000001;

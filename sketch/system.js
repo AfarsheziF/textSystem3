@@ -15,6 +15,10 @@ var sentenceToSort;
 
 var printPoemSentence = false;
 var poemSentenceIndex;
+var onPrintSentence = false;
+var wordInSentenceIndex;
+var thisSentence;
+var onLoadingWord = false;
 
 function System(p5) {
 
@@ -72,7 +76,7 @@ function System(p5) {
         savethisLetter(input, this.particles);
     }
 
-    this.printWord = function (index, word, sentenceSize, thisSentence) {
+    this.printWord = function (index, word, sentenceSize) {
         var wordLetterArray = [];
         var wordArray = word.split("");
         var p5 = this.p5;
@@ -91,6 +95,7 @@ function System(p5) {
                 }
 
                 if (fileExists((address + letterToPrint.toUpperCase() + ".json"))) {
+                    onLoadingWord = true;
                     $.getJSON(address + letterToPrint.toUpperCase() + ".json",
                         function (data) {
                             wordLetterArray.push(new LetterParticle(p5, index, data));
@@ -107,7 +112,6 @@ function System(p5) {
         }
 
         function setWord() {
-            //console.log("setWord", wordLetterArray);
             wordLetterArray.sort(function (a, b) {
                 return a.index - b.index;
             });
@@ -127,26 +131,45 @@ function System(p5) {
             wordsCount++;
             thisSentence.push(thisWord);
 
-            if (wordsCount === sentenceSize - 1) {
+            //console.log("setWord", wordLetterArray, wordsCount, sentenceSize);
+
+            if (wordsCount === sentenceSize) {
                 sentenceToSort = thisSentence;
                 sentenceIsReady = true;
+                onLoadingWord = false;
             }
         }
     }
 
     this.printSentence = function (sentence) {
-        printPoemSentence = false;
-        var thisSentence = [];
-        wordsCount = 0;
-
-        if (sentence.indexOf(" ") < 0) {
-            sentence = sentence + " ";
+        //printPoemSentence = false;
+        if (thisSentence == null) {
+            thisSentence = [];
+            wordsCount = 0;
         }
+
+        //if (sentence.indexOf(" ") < 0) {
+        //    sentence = sentence + " ";
+        //}
 
         var senArray = sentence.split(" ");
-        for (var i = 0; i < senArray.length; i++) {
-            this.printWord(i, senArray[i], senArray.length, thisSentence);
+        if (wordInSentenceIndex < senArray.length) {
+            //console.log("print sentence", sentence, senArray, wordInSentenceIndex);
+            var wordToPrint = senArray[wordInSentenceIndex];
+            if (wordToPrint !== "") {
+                this.printWord(wordInSentenceIndex, wordToPrint, senArray.length);
+            }
+            wordInSentenceIndex++;
+        } else {
+            if (!onLoadingWord) {
+                onPrintSentence = false;
+                wordInSentenceIndex = 0;
+                thisSentence = null;
+            }
         }
+        //for (var i = 0; i < senArray.length; i++) {
+        //    this.printWord(i, senArray[i], senArray.length, thisSentence);
+        //}
 
     }
 
@@ -155,7 +178,7 @@ function System(p5) {
             return a.index - b.index;
         });
 
-        //console.log("setSentence", sentenceToSort);
+        console.log("setSentence", sentenceToSort);
         sentenceIsReady = false;
 
         if (rowsCount > 0) {
@@ -208,6 +231,9 @@ function System(p5) {
         startingPointY = initialStartingPoint.y;
         wordsCount = 0;
         rowsCount = 0;
+        wordInSentenceIndex = 0;
+        onPrintSentence = true;
+        thisSentence = null;
 
         poemArray = pomArray;
     }
@@ -217,9 +243,14 @@ function System(p5) {
             if (poemSentenceIndex < poemArray.length) {
                 this.printSentence(poemArray[poemSentenceIndex]);
             } else {
-                printPoemSentence = false;
+                if (poemSentenceIndex >= poemArray.length) {
+                    poemArray = null;
+                }
             }
-            poemSentenceIndex++;
+            if (!onPrintSentence) {
+                poemSentenceIndex++;
+                onPrintSentence = true;
+            }
         } else {
             printPoemSentence = false;
         }

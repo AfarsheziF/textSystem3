@@ -15,7 +15,7 @@ $(document).ready(function () {
 });
 
 function loadObject() {
-    var query = new Parse.Query("Uncertainty");
+    var query = new Parse.Query("newUncertainty");
     query.descending("createdAt");
     query.find().then(
         function (results) {

@@ -5,10 +5,10 @@ function Particle(p5, index, gridIndex, target, related) {
     this.related = related;
     this.target = target;
 
-    this.p = new VerletParticle2D(p5.random(p5.width), p5.random(p5.height));
+    this.p = new VerletParticle2D(p5.width/2, p5.height/2);
     p5.physics.addParticle(this.p);
 
-    this.spring = new VerletSpring2D(new VerletParticle2D(target), this.p, 1, 1);
+    this.spring = new VerletSpring2D(new VerletParticle2D(target), this.p, 1, globalVar.springForce);
     this.spring.lockA(true);
     p5.physics.addSpring(this.spring);
 
@@ -20,7 +20,7 @@ function Particle(p5, index, gridIndex, target, related) {
         this.target.y = newPosition.y;
 
         p5.physics.removeSpring(this.spring);
-        this.spring = new VerletSpring2D(new VerletParticle2D(target), this.p, 1, 1);
+        this.spring = new VerletSpring2D(new VerletParticle2D(target), this.p, 1, globalVar.springForce);
         this.spring.lockA(true);
         p5.physics.addSpring(this.spring);
     }
