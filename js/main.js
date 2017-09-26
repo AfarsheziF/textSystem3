@@ -38,8 +38,8 @@ window.addEventListener('message', function (event) {
             skatch.system.printThisPoem(messegeObj.data);
             break;
 
-        case "setSpringForce":
-            globalVar.springForce = messegeObj.data;
+        case "setGlobarVar":
+            globalVar[messegeObj.data.metric] = messegeObj.data.value;
             break;
     }
 
