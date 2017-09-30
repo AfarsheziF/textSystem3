@@ -29,4 +29,5 @@ function GlobalVar() {
     this.endSkatch = false;
 
     this.spacing = 5;
+    this.spacingY = 25;
 }

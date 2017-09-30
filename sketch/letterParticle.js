@@ -78,10 +78,11 @@ function LetterParticle(p5, index, data) {
 
 
         this.totalWidth = this.p5.dist(this.container[0].x, this.container[0].y, this.container[widthCount].x, this.container[widthCount].y);
-        if (letterHight == null && widthCount === 3) {
-            letterHight = this.totalWidth;
-            console.log("Letter height set to:", letterHight);
-        }
+
+        //if (letterHight == null && widthCount === 3) {
+        //    letterHight = this.totalWidth;
+        //    console.log("Letter height set to:", letterHight);
+        //}
         //console.log("Container created. Total width: ", this.totalWidth, position);
     }
 

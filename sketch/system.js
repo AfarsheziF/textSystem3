@@ -185,7 +185,7 @@ function System(p5) {
             //console.log(lastWord);
             var wordLastLetter = lastWord.letters[lastWord.letters.length - 1];
             var lastGridVec = wordLastLetter.container[wordLastLetter.container.length - 1];
-            startingPointY = lastGridVec.y + globalVar.spacing;
+            startingPointY = lastGridVec.y + globalVar.spacingY;
         }
 
         startingPointX = initialStartingPoint.x;

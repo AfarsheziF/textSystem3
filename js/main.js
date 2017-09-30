@@ -40,6 +40,7 @@ window.addEventListener('message', function (event) {
 
         case "setGlobarVar":
             globalVar[messegeObj.data.metric] = messegeObj.data.value;
+            console.log("glovalVar", messegeObj.data.metric, "set to", messegeObj.data.value);
             break;
     }
 
