@@ -5,7 +5,7 @@ function Particle(p5, index, gridIndex, target, related) {
     this.related = related;
     this.target = target;
 
-    this.p = new VerletParticle2D(p5.width/2, p5.height/2);
+    this.p = new VerletParticle2D(p5.width / 2, p5.height / 2);
     p5.physics.addParticle(this.p);
 
     this.spring = new VerletSpring2D(new VerletParticle2D(target), this.p, 1, globalVar.springForce);
@@ -121,12 +121,14 @@ function LetterParticle(p5, index, data) {
     this.color = globalVar.particalColor;
 
     this.update = function () {
-        for (var i = 0; i < this.particles.length; i++) {
-            var particle = this.particles[i];
-            particle.attractionBehavior.setStrength(globalVar.particleForce);
-            particle.attractionBehavior.setJitter(globalVar.particleForce);
-            particle.attractionBehavior.setRadius(globalVar.particleRadius);
-            particle.spring.setStrength(globalVar.springForce);
+        if (globalVar.updateParticles) {
+            for (var i = 0; i < this.particles.length; i++) {
+                var particle = this.particles[i];
+                particle.attractionBehavior.setStrength(globalVar.particleForce);
+                particle.attractionBehavior.setJitter(globalVar.particleForce);
+                particle.attractionBehavior.setRadius(globalVar.particleRadius);
+                particle.spring.setStrength(globalVar.springForce);
+            }
         }
     }
 
@@ -136,8 +138,9 @@ function LetterParticle(p5, index, data) {
                 var thisParticle = this.particles[i];
                 this.p5.stroke(this.color);
                 this.p5.strokeWeight(globalVar.particleStroke);
-                this.p5.point(thisParticle.p.x, thisParticle.p.y);
-
+                if (globalVar.showParticles) {
+                    this.p5.point(thisParticle.p.x, thisParticle.p.y);
+                }
                 if (globalVar.showLines) {
                     if (thisParticle.related != null && thisParticle.related !== "") {
                         var related;

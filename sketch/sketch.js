@@ -30,7 +30,7 @@ var mySketch = function (p) {
         p.physics.update();
 
         p.system.run();
- 
+
     }
 
     p.keyPressed = function () {
@@ -59,7 +59,7 @@ var mySketch = function (p) {
         console.log(
             "\Sketch print",
             "\nWidth:", p.canvas.width,
-            "\nHeight:",p.canvas.height,
+            "\nHeight:", p.canvas.height,
             "\nParticles:", p.physics.particles.length,
             "\nStarting Point", initialStartingPoint
             );

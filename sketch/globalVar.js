@@ -10,8 +10,9 @@ function GlobalVar() {
     this.particleForceManupulation = 0.5;
     this.particleForceMinimum = 0.000000000001;
 
-    this.showParticles = true;
+    this.showParticles = false;
     this.showLines = true;
+    this.updateParticles = false;
 
     this.move = true;
     this.thisMouseX;
