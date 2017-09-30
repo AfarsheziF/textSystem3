@@ -13,6 +13,7 @@ function Particle(p5, index, gridIndex, target, related) {
     p5.physics.addSpring(this.spring);
 
     this.attractionBehavior = new AttractionBehavior(this.p, globalVar.particleRadius, globalVar.particleForce);
+    this.attractionBehavior.setJitter(globalVar.particleJitter);
     p5.physics.addBehavior(this.attractionBehavior);
 
     this.updatePosition = function (newPosition) {
@@ -125,7 +126,7 @@ function LetterParticle(p5, index, data) {
             for (var i = 0; i < this.particles.length; i++) {
                 var particle = this.particles[i];
                 particle.attractionBehavior.setStrength(globalVar.particleForce);
-                particle.attractionBehavior.setJitter(globalVar.particleForce);
+                particle.attractionBehavior.setJitter(globalVar.particleJitter);
                 particle.attractionBehavior.setRadius(globalVar.particleRadius);
                 particle.spring.setStrength(globalVar.springForce);
             }
