@@ -29,9 +29,9 @@ function System(p5) {
 
     this.setStartingPoint = function () {
         if (this.p5.width >= 1050) {
-            initialStartingPoint = new Vec2D(this.p5.width / 6.25, this.p5.height / 3.5);
+            initialStartingPoint = new Vec2D(this.p5.width / 6.25, this.p5.height / 5.5);
         } else {
-            initialStartingPoint = new Vec2D(this.p5.width / 10.25, this.p5.height / 3.5);
+            initialStartingPoint = new Vec2D(this.p5.width / 10.25, this.p5.height / 5.5);
         }
     }
 
