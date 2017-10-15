@@ -1,0 +1,26 @@
+﻿{
+  "name": "כ",
+  "gridCount": 3,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 0,
+      "rel": 1
+    },
+    {
+      "index": 1,
+      "gridIndex": 3,
+      "rel": 3
+    },
+    {
+      "index": 2,
+      "gridIndex": 16,
+      "rel": 3
+    },
+    {
+      "index": 3,
+      "gridIndex": 19,
+      "rel": ""
+    }
+  ]
+}

@@ -95,9 +95,9 @@ function sendEmail(subject, name, email, text) {
             "<b>Text: </b>" + text
     })
         .then(function (result) {
-            console.log("result :" + JSON.stringify(result))
-        }, function (error) {
-            console.log("result :" + result);
+                console.log("result :" + JSON.stringify(result));
+            }, function (error) {
+                console.log(error);
         }
     );
 

@@ -1,0 +1,31 @@
+﻿{
+  "name": "ט",
+  "gridCount": 3,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 0,
+      "rel": 3
+    },
+    {
+      "index": 1,
+      "gridIndex": 1,
+      "rel": 2
+    },
+    {
+      "index": 2,
+      "gridIndex": 3,
+      "rel": 4
+    },
+    {
+      "index": 3,
+      "gridIndex": 16,
+      "rel": 4
+    },
+    {
+      "index": 4,
+      "gridIndex": 19,
+      "rel": ""
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+﻿{
+  "name": "ד",
+  "gridCount": 3,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 0,
+      "rel": 1
+    },
+    {
+      "index": 1,
+      "gridIndex": 2,
+      "rel": 3
+    },
+    {
+      "index": 2,
+      "gridIndex": 3,
+      "rel": 1
+    },
+    {
+      "index": 3,
+      "gridIndex": 18,
+      "rel": ""
+    }
+  ]
+}

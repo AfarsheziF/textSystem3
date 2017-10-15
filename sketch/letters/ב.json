@@ -1,0 +1,31 @@
+﻿{
+  "name": "ב",
+  "gridCount": 3,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 0,
+      "rel": 1
+    },
+    {
+      "index": 1,
+      "gridIndex": 2,
+      "rel": 3
+    },
+    {
+      "index": 2,
+      "gridIndex": 16,
+      "rel": 3
+    },
+    {
+      "index": 3,
+      "gridIndex": 18,
+      "rel": ""
+    },
+    {
+      "index": 4,
+      "gridIndex": 19,
+      "rel": 3
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+﻿{
+  "name": "מ",
+  "gridCount": 3,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 0,
+      "rel": 1
+    },
+    {
+      "index": 1,
+      "gridIndex": 5,
+      "rel": ""
+    },
+    {
+      "index": 2,
+      "gridIndex": 7,
+      "rel": 1
+    },
+    {
+      "index": 3,
+      "gridIndex": 8,
+      "rel": 1
+    },
+    {
+      "index": 4,
+      "gridIndex": 16,
+      "rel": 5
+    },
+    {
+      "index": 5,
+      "gridIndex": 19,
+      "rel": 2
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+﻿{
+  "name": "ת",
+  "gridCount": 3,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 1,
+      "rel": 1
+    },
+    {
+      "index": 1,
+      "gridIndex": 2,
+      "rel": 2
+    },
+    {
+      "index": 2,
+      "gridIndex": 7,
+      "rel": 4
+    },
+    {
+      "index": 3,
+      "gridIndex": 16,
+      "rel": 0
+    },
+    {
+      "index": 4,
+      "gridIndex": 19,
+      "rel": 3
+    }
+  ]
+}

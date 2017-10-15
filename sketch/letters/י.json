@@ -1,0 +1,21 @@
+﻿{
+  "name": "י",
+  "gridCount": 2,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 1,
+      "rel": 1
+    },
+    {
+      "index": 1,
+      "gridIndex": 2,
+      "rel": 2
+    },
+    {
+      "index": 2,
+      "gridIndex": 8,
+      "rel": ""
+    }
+  ]
+}

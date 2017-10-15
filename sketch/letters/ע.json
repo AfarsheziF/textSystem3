@@ -1,0 +1,36 @@
+﻿{
+  "name": "ע",
+  "gridCount": 3,
+  "data": [
+    {
+      "index": 0,
+      "gridIndex": 1,
+      "rel": 4
+    },
+    {
+      "index": 1,
+      "gridIndex": 3,
+      "rel": 2
+    },
+    {
+      "index": 2,
+      "gridIndex": 15,
+      "rel": 5
+    },
+    {
+      "index": 3,
+      "gridIndex": 16,
+      "rel": 4
+    },
+    {
+      "index": 4,
+      "gridIndex": 17,
+      "rel": 5
+    },
+    {
+      "index": 5,
+      "gridIndex": 18,
+      "rel": ""
+    }
+  ]
+}
