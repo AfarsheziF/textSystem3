@@ -9,13 +9,13 @@
     },
     {
       "index": 1,
-      "gridIndex": 1,
+      "gridIndex": 3,
       "rel": 2
     },
     {
       "index": 2,
-      "gridIndex": 3,
-      "rel": 4
+      "gridIndex": 9,
+      "rel": ""
     },
     {
       "index": 3,
@@ -25,7 +25,7 @@
     {
       "index": 4,
       "gridIndex": 19,
-      "rel": ""
+      "rel": 1
     }
   ]
 }
