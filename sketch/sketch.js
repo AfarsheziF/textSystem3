@@ -9,7 +9,7 @@ var mySketch = function (p) {
 
     //-----SETUP-----//
     p.setup = function () {
-        p.createCanvas(skatchWidth, skatchHeight).parent('sketch-holder');
+        p.createCanvas(skatchWidth, skatchHeight, "WEBGL").parent('sketch-holder');
 
         p.physics = new VerletPhysics2D();
         p.physics.setDrag(0.05);
