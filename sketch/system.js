@@ -88,7 +88,7 @@ function System(p5) {
             var letterToPrint = wordArray[i];
 
             function loadLetter(index, letterToPrint) {
-
+                console.log("print letter", letterToPrint);
                 var address = location.href + "sketch/letters/";
                 if (location.href.indexOf("http://localhost") !== -1) {
                     address = "../sketch/letters/";
