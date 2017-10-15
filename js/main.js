@@ -35,16 +35,14 @@ window.addEventListener('message', function (event) {
 
     switch (messegeObj.order) {
         case "printThisPoem":
+            globalVar.diraction = messegeObj.diraction;
+            skatch.system.setStartingPoint();
             skatch.system.printThisPoem(messegeObj.data);
             break;
 
         case "setGlobarVar":
             globalVar[messegeObj.data.metric] = messegeObj.data.value;
             console.log("glovalVar", messegeObj.data.metric, "set to", messegeObj.data.value);
-            break;
-
-        case "setStartingPoint":
-            skatch.system.setStartingPoint();
             break;
     }
 

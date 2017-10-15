@@ -28,7 +28,7 @@ function System(p5) {
     this.sentences = {};
 
     this.setStartingPoint = function () {
-        if (!globalVar.onHebrew) {
+        if (globalVar.diraction === "ltr") {
             if (this.p5.width >= 1050) {
                 initialStartingPoint = new Vec2D(this.p5.width / 6.25, this.p5.height / 5.5);
             } else {
@@ -208,7 +208,7 @@ function System(p5) {
 
                 if (prevWordObj !== "") {
                     lastLetter = prevWordObj.letters[prevWordObj.letters.length - 1];
-                    if (!globalVar.onHebrew) {
+                    if (globalVar.diraction === "ltr") {
                         startingPointX = lastLetter.position.x + lastLetter.totalWidth + globalVar.spacing * 4;
                         //console.log("prevWordObj", prevWordObj, "startingPointX", startingPointX);
                     } else {
@@ -222,7 +222,7 @@ function System(p5) {
                 var pos = startingPointX;
                 if (y > 0) {
                     var thisLastLetter = wordLetterArray[y - 1];
-                    if (!globalVar.onHebrew) {
+                    if (globalVar.diraction === "ltr") {
                         pos = thisLastLetter.position.x + thisLastLetter.totalWidth + globalVar.spacing;
                     } else {
                         pos = thisLastLetter.position.x - thisLastLetter.totalWidth - globalVar.spacing;
