@@ -42,6 +42,10 @@ window.addEventListener('message', function (event) {
             globalVar[messegeObj.data.metric] = messegeObj.data.value;
             console.log("glovalVar", messegeObj.data.metric, "set to", messegeObj.data.value);
             break;
+
+        case "setStartingPoint":
+            skatch.system.setStartingPoint();
+            break;
     }
 
     //// IMPORTANT: Check the origin of the data! 

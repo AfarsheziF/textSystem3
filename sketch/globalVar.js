@@ -31,4 +31,6 @@ function GlobalVar() {
 
     this.spacing = 5;
     this.spacingY = 25;
+
+    this.onHebrew = false;
 }

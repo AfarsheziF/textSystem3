@@ -14,7 +14,7 @@ $(document).ready(function () {
     execute();
 });
 
-function loadObject() {
+function loadUncertainty() {
     var query = new Parse.Query("newUncertainty");
     query.descending("createdAt");
     query.find().then(
@@ -22,6 +22,21 @@ function loadObject() {
             data = results;
             setActiveObject(0);
             console.log("Uncertainty data:", data);
+            //execute();
+        }, function (error) {
+            console.log(error);
+        }
+    );
+}
+
+function loadLight() {
+    var query = new Parse.Query("letsCoverTheLight");
+    query.descending("createdAt");
+    query.find().then(
+        function (results) {
+            data = results;
+            setActiveObject(0);
+            console.log("letsCoverTheLight data:", data);
             //execute();
         }, function (error) {
             console.log(error);

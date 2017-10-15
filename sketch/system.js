@@ -28,11 +28,20 @@ function System(p5) {
     this.sentences = {};
 
     this.setStartingPoint = function () {
-        if (this.p5.width >= 1050) {
-            initialStartingPoint = new Vec2D(this.p5.width / 6.25, this.p5.height / 5.5);
+        if (!globalVar.onHebrew) {
+            if (this.p5.width >= 1050) {
+                initialStartingPoint = new Vec2D(this.p5.width / 6.25, this.p5.height / 5.5);
+            } else {
+                initialStartingPoint = new Vec2D(this.p5.width / 10.25, this.p5.height / 5.5);
+            }
         } else {
-            initialStartingPoint = new Vec2D(this.p5.width / 10.25, this.p5.height / 5.5);
+            if (this.p5.width >= 1050) {
+                initialStartingPoint = new Vec2D(this.p5.width - (this.p5.width / 6.25), this.p5.height / 5.5);
+            } else {
+                initialStartingPoint = new Vec2D(this.p5.width - (this.p5.width / 10.25), this.p5.height / 5.5);
+            }
         }
+        console.log("setStartingPoint:", initialStartingPoint);
     }
 
     this.setStartingPoint();
@@ -88,7 +97,7 @@ function System(p5) {
             var letterToPrint = wordArray[i];
 
             function loadLetter(index, letterToPrint) {
-                console.log("print letter", letterToPrint);
+                //console.log("print letter", letterToPrint);
                 var address = location.href + "sketch/letters/";
                 if (location.href.indexOf("http://localhost") !== -1) {
                     address = "../sketch/letters/";
@@ -199,8 +208,12 @@ function System(p5) {
 
                 if (prevWordObj !== "") {
                     lastLetter = prevWordObj.letters[prevWordObj.letters.length - 1];
-                    startingPointX = lastLetter.position.x + lastLetter.totalWidth + globalVar.spacing * 4;
-                    //console.log("prevWordObj", prevWordObj, "startingPointX", startingPointX);
+                    if (!globalVar.onHebrew) {
+                        startingPointX = lastLetter.position.x + lastLetter.totalWidth + globalVar.spacing * 4;
+                        //console.log("prevWordObj", prevWordObj, "startingPointX", startingPointX);
+                    } else {
+                        startingPointX = lastLetter.position.x - lastLetter.totalWidth - globalVar.spacing * 4;
+                    }
                 }
             }
 
@@ -209,7 +222,11 @@ function System(p5) {
                 var pos = startingPointX;
                 if (y > 0) {
                     var thisLastLetter = wordLetterArray[y - 1];
-                    pos = thisLastLetter.position.x + thisLastLetter.totalWidth + globalVar.spacing;
+                    if (!globalVar.onHebrew) {
+                        pos = thisLastLetter.position.x + thisLastLetter.totalWidth + globalVar.spacing;
+                    } else {
+                        pos = thisLastLetter.position.x - thisLastLetter.totalWidth - globalVar.spacing;
+                    }
                 }
                 wordLetterArray[y].setLetter(new Vec2D(pos, startingPointY));
             }
