@@ -35,7 +35,9 @@ window.addEventListener('message', function (event) {
 
     switch (messegeObj.order) {
         case "printThisPoem":
-            globalVar.diraction = messegeObj.diraction;
+            if (globalVar.diraction !== null) {
+                globalVar.diraction = messegeObj.diraction;
+            }
             skatch.system.setStartingPoint();
             skatch.system.printThisPoem(messegeObj.data);
             break;
