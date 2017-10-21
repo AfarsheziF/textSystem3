@@ -303,14 +303,25 @@ function System(p5) {
                             if (i === 0) {
                                 if (prevWordObj != null) {
                                     thisLastLetter = prevWordObj.letters[prevWordObj.letters.length - 1];
-                                    posX = thisLastLetter.position
-                                        .x +
-                                        thisLastLetter.totalWidth +
-                                        globalVar.spacing * 4;
+                                    if (globalVar.diraction === "ltr") {
+                                        posX = thisLastLetter.position
+                                            .x +
+                                            thisLastLetter.totalWidth +
+                                            globalVar.spacing * 4;
+                                    } else {
+                                        posX = thisLastLetter.position
+                                            .x -
+                                            thisLastLetter.totalWidth -
+                                            globalVar.spacing * 4;
+                                    }
                                 }
                             } else {
                                 thisLastLetter = wordObj.letters[i - 1];
-                                posX = thisLastLetter.position.x + thisLastLetter.totalWidth + globalVar.spacing;
+                                if (globalVar.diraction === "ltr") {
+                                    posX = thisLastLetter.position.x + thisLastLetter.totalWidth + globalVar.spacing;
+                                } else {
+                                    posX = thisLastLetter.position.x - thisLastLetter.totalWidth - globalVar.spacing;
+                                }
                             }
                             if (wordObj.letters[i].position.y == null) {
                                 abort = true;
