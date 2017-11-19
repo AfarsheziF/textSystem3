@@ -22,7 +22,7 @@ var mySketch = function (p) {
 
     //-----DRAW-----//
     p.draw = function () {
-        p.fill(globalVar.backgroundColor, globalVar.opacityx);
+        p.fill(globalVar.backgroundColor, globalVar.opacity);
         p.stroke(0);
         p.strokeWeight(0);
         p.rect(0, 0, p.width, p.height);
