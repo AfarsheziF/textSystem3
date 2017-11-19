@@ -33,4 +33,6 @@ function GlobalVar() {
     this.spacingY = 25;
 
     this.diraction = "ltr";
+
+    this.historySize = 25;
 }
