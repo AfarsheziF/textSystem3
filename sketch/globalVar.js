@@ -19,7 +19,7 @@ function GlobalVar() {
     this.thisMouseY;
     this.onHover = false;
 
-    this.opacity = 10;
+    this.opacity = 35;
     this.linesLenght = 15;
     this.backgroundColor = 255;
     this.particalColor = 0;
