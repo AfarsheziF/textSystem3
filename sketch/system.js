@@ -62,7 +62,7 @@ function System(p5) {
 
         this.letters[letterName].particles.push(p);
         lastLetterVec = new Vec2D(x, y);
-        console.log("Add particle", x, y, letterToPrint, this.letters);
+        //console.log("Add particle", x, y, letterToPrint, this.letters);
     }
 
     this.calculateSystemDistance = function (p1, p2) {
@@ -187,7 +187,7 @@ function System(p5) {
             return a.index - b.index;
         });
 
-        console.log("setSentence", sentenceToSort);
+        //console.log("setSentence", sentenceToSort);
         sentenceIsReady = false;
 
         if (rowsCount > 0) {
@@ -278,7 +278,7 @@ function System(p5) {
         this.p5.physics.particles = [];
         this.p5.physics.springs = [];
         this.p5.physics.behaviors = [];
-        console.log("System cleared");
+        //console.log("System cleared");
     }
 
     this.resizeSystem = function () {
@@ -335,6 +335,20 @@ function System(p5) {
                 }
             }
         }
+    }
+
+    this.printSystem = function() {
+        console.log("\nTextSystem 3",
+            "\nParticles:",
+            this.particles.length,
+            "\nContainers:",
+            this.containers.length,
+            "\nSentences:",
+            this.sentences.length,
+            "\nPhysics particles:",
+            this.p5.physics.particles.length,
+            "\nPhysics behaviors:",
+            this.p5.physics.behaviors.length);
     }
 
     this.run = function () {

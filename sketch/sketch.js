@@ -22,7 +22,7 @@ var mySketch = function (p) {
 
     //-----DRAW-----//
     p.draw = function () {
-        p.fill(globalVar.backgroundColor, 100);
+        p.fill(globalVar.backgroundColor, globalVar.opacity);
         p.stroke(0);
         p.strokeWeight(0);
         p.rect(0, 0, p.width, p.height);
@@ -30,6 +30,10 @@ var mySketch = function (p) {
         p.physics.update();
 
         p.system.run();
+
+        p.fill(0);
+        p.stroke(0);
+        p.text(p.frameRate(), 50, 50);
 
     }
 
