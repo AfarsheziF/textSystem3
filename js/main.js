@@ -38,8 +38,12 @@ window.addEventListener('message', function (event) {
             break;
 
         case "setGlobarVar":
-            globalVar[messegeObj.data.metric] = messegeObj.data.value;
-            console.log("glovalVar", messegeObj.data.metric, "set to", messegeObj.data.value);
+            if (messegeObj.data.metric === "init") {
+                globalVar = new GlobalVar();
+            } else {
+                globalVar[messegeObj.data.metric] = messegeObj.data.value;
+                console.log("glovalVar", messegeObj.data.metric, "set to", messegeObj.data.value);
+            }
             break;
     }
 

@@ -119,6 +119,7 @@ function LetterParticle(p5, index, data) {
     }
 
     this.index = index;
+
     this.color = globalVar.particalColor;
 
     this.update = function () {
