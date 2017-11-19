@@ -12,7 +12,7 @@ function GlobalVar() {
 
     this.showParticles = false;
     this.showLines = true;
-    this.updateParticles = false;
+    this.updateParticles = true;
 
     this.move = true;
     this.thisMouseX;
