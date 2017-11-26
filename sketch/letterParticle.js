@@ -1,10 +1,17 @@
 ﻿
+var testParticle;
+
 function Particle(p5, index, gridIndex, target, related) {
     this.index = index;
     this.gridIndex = gridIndex;
     this.related = related;
     this.target = target;
     this.history = [];
+    this.p5 = p5;
+
+    //if (testParticle == null) {
+    //    testParticle = this;
+    //}
 
     this.p = new VerletParticle2D(p5.width / 2, p5.height / 2);
     p5.physics.addParticle(this.p);
@@ -28,17 +35,29 @@ function Particle(p5, index, gridIndex, target, related) {
     }
 
     this.update = function () {
-        for (var i = this.history.length - 1; i >= 0; i--) {
-            if (i >= globalVar.historySize) {
-                this.history = this.history.splice(i, 1);
-            }
+        this.attractionBehavior.setStrength(globalVar.particleForce);
+        this.attractionBehavior.setJitter(globalVar.particleJitter);
+        this.attractionBehavior.setRadius(globalVar.particleRadius);
+        this.spring.setStrength(globalVar.springForce);
+
+        if (this.history.length > globalVar.historySize) {
+            this.history.shift();
         }
 
-        //if (this.history.length > globalVar.historySize) {
-        //    this.history = this.history.splice(0, 1);
-        //}
-
         this.history.push(new Vec2D(this.p.x, this.p.y));
+    }
+
+    this.display = function () {
+        //this.p5.point(thisParticle.p.x, thisParticle.p.y);
+        for (var i = 1; i < this.history.length; i++) {
+            if (i < this.history.length - 2) {
+                var thisVec = this.history[i];
+                var perVec = this.history[i - 1];
+                //this.p5.stroke(globalVar.historyColor);
+                //this.p5.strokeWeight(globalVar.particleStroke);
+                this.p5.line(thisVec.x, thisVec.y, perVec.x, perVec.y);
+            }
+        }
     }
 }
 
@@ -141,11 +160,7 @@ function LetterParticle(p5, index, data) {
         if (globalVar.updateParticles) {
             var i;
             for (i = 0; i < this.particles.length; i++) {
-                var particle = this.particles[i];
-                particle.attractionBehavior.setStrength(globalVar.particleForce);
-                particle.attractionBehavior.setJitter(globalVar.particleJitter);
-                particle.attractionBehavior.setRadius(globalVar.particleRadius);
-                particle.spring.setStrength(globalVar.springForce);
+                this.particles[i].update();
             }
         }
     }
@@ -159,18 +174,6 @@ function LetterParticle(p5, index, data) {
 
                 this.p5.stroke(this.color);
                 this.p5.strokeWeight(globalVar.particleStroke);
-                if (globalVar.showParticles) {
-                    //this.p5.point(thisParticle.p.x, thisParticle.p.y);
-                    for (i = 1; i < thisParticle.history.length; i++) {
-                        if (i < thisParticle.history.length - 2) {
-                            var thisVec = thisParticle.history[i];
-                            var perVec = thisParticle.history[i - 1];
-                            //this.p5.stroke(globalVar.historyColor);
-                            //this.p5.strokeWeight(globalVar.particleStroke);
-                            this.p5.line(thisVec.x, thisVec.y, perVec.x, perVec.y);
-                        }
-                    }
-                }
 
                 if (globalVar.showLines) {
                     if (thisParticle.related != null && thisParticle.related !== "") {
@@ -186,6 +189,10 @@ function LetterParticle(p5, index, data) {
                         }
                     }
                 }
+            }
+            if (globalVar.showParticles) {
+                //show only one particle for better performance//
+                this.particles[0].display();
             }
         } else {
             this.debug();

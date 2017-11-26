@@ -34,5 +34,5 @@ function GlobalVar() {
 
     this.diraction = "ltr";
 
-    this.historySize = 25;
+    this.historySize = 10;
 }

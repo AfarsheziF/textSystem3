@@ -42,6 +42,10 @@ var mySketch = function (p) {
             case 32:
                 p.ptintSketch();
                 break;
+
+            case 70:
+                p.system.clearSystem();
+                break;
         }
     }
 
