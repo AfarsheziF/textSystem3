@@ -47,7 +47,7 @@ window.addEventListener('message', function (event) {
             break;
 
         case "debug":
-            debug = data.value;
+            debug = messegeObj.data.value;
             break;
     }
 
