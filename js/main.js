@@ -50,6 +50,10 @@ window.addEventListener('message', function (event) {
         case "debug":
             debug = messegeObj.data.value;
             break;
+
+        case "showFrameRate":
+            showFrameRate = messegeObj.data.value;
+            break;
     }
 
     //// IMPORTANT: Check the origin of the data! 

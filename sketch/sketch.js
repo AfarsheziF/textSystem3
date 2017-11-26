@@ -2,6 +2,7 @@
 var input = "";
 var debug = false;
 var lastFpsPrint = 0;
+var showFrameRate = false
 
 var mySketch = function (p) {
 
@@ -32,7 +33,7 @@ var mySketch = function (p) {
 
         p.system.run();
 
-        if (debug) {
+        if (debug || showFrameRate) {
             if (p.millis() > lastFpsPrint) {
                 lastFpsPrint = p.millis() + 200;
                 p.fill(0);
