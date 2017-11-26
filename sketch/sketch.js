@@ -1,6 +1,7 @@
 ﻿
 var input = "";
 var debug = false;
+var lastFpsPrint = 0;
 
 var mySketch = function (p) {
 
@@ -31,10 +32,14 @@ var mySketch = function (p) {
 
         p.system.run();
 
-        //p.fill(0);
-        //p.stroke(0);
-        //p.text(p.frameRate(), 50, 50);
-
+        if (debug) {
+            if (p.millis() > lastFpsPrint) {
+                lastFpsPrint = p.millis() + 200;
+                p.fill(0);
+                p.stroke(0);
+                p.text(p.frameRate(), 50, 50);
+            }
+        }
     }
 
     p.keyPressed = function () {
