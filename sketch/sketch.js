@@ -38,6 +38,7 @@ var mySketch = function (p) {
                 lastFpsPrint = p.millis() + 200;
                 p.fill(0);
                 p.stroke(0);
+                p.strokeWeight(1);
                 p.text(p.frameRate(), 50, 50);
             }
         }

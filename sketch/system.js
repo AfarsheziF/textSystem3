@@ -106,7 +106,7 @@ function System(p5) {
                 if (fileExists((address + letterToPrint.toUpperCase() + ".json"))) {
                     onLoadingWord = true;
                     $.getJSON(address + letterToPrint.toUpperCase() + ".json",
-                        function (data) {
+                        function(data) {
                             wordLetterArray.push(new LetterParticle(p5, index, data));
                             loadCount++;
                             //console.log("Letter file loaded", data, index, loadCount);
@@ -114,6 +114,8 @@ function System(p5) {
                                 setWord();
                             };
                         });
+                } else {
+                    console.log("Letter is not supported:", letterToPrint);
                 }
             }
 
