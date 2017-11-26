@@ -62,6 +62,7 @@ window.addEventListener('message', function (event) {
 });
 
 $('document').ready(function () {
+    console.log(window.opener);
     if (window.opener != null) {
         function sendCallBack(callback) {
             window.opener.postMessage(callback, "*");
