@@ -63,9 +63,12 @@ window.addEventListener('message', function (event) {
 
 $('document').ready(function () {
     if (window.parent != null) {
-        function sendCallBack(callback) {
-            window.parent.postMessage(callback, "*");
-        }
-        sendCallBack("ready");
+        window.parent.postMessage("ready", "*");
     }
 });
+
+function sendCallBack() {
+    if (window.parent != null) {
+        window.parent.postMessage(callback, "*");
+    }
+}

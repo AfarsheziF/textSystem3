@@ -270,6 +270,7 @@ function System(p5) {
             }
         } else {
             printPoemSentence = false;
+            sendCallBack("poem done");
         }
     }
 
