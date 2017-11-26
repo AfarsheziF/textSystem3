@@ -59,7 +59,9 @@ var mySketch = function (p) {
 
     p.windowResized = function () {
         p.resizeCanvas(skatchWidth, skatchHeight);
-        p.system.resizeSystem();
+        if (p.system != null) {
+            p.system.resizeSystem();
+        }
     }
 
 

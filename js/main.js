@@ -65,6 +65,7 @@ $('document').ready(function () {
     if (window.opener != null) {
         function sendCallBack(callback) {
             window.opener.postMessage(callback, "*");
+            console.log("ready sent");
         }
 
         sendCallBack("ready");
