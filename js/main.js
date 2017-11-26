@@ -61,6 +61,12 @@ window.addEventListener('message', function (event) {
 
 });
 
-function sendCallBack(callback) {
-    window.opener.postMessage(callback, "*");
-}
+$('document').ready(function () {
+    if (window.opener != null) {
+        function sendCallBack(callback) {
+            window.opener.postMessage(callback, "*");
+        }
+
+        sendCallBack("ready");
+    }
+});
