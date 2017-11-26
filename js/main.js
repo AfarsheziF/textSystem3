@@ -67,7 +67,7 @@ $('document').ready(function () {
     }
 });
 
-function sendCallBack() {
+function sendCallBack(callback) {
     if (window.parent != null) {
         window.parent.postMessage(callback, "*");
     }
