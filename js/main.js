@@ -30,7 +30,8 @@ window.addEventListener('message', function (event) {
 
     switch (messegeObj.order) {
         case "printThisPoem":
-            if (globalVar.diraction !== null) {
+            if (globalVar.diraction !== null && messegeObj.diraction != null && 
+                messegeObj.diraction.trim() !== "") {
                 globalVar.diraction = messegeObj.diraction;
             }
             skatch.system.setStartingPoint();
