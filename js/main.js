@@ -45,6 +45,10 @@ window.addEventListener('message', function (event) {
                 console.log("glovalVar", messegeObj.data.metric, "set to", messegeObj.data.value);
             }
             break;
+
+        case "debug":
+            debug = data.value;
+            break;
     }
 
     //// IMPORTANT: Check the origin of the data! 
