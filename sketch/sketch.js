@@ -18,6 +18,7 @@ var mySketch = function (p) {
         p.system = new System(p);
         p.background(globalVar.backgroundColor);
 
+        sendCallBack("ready");
     }
 
     //-----DRAW-----//
