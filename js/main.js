@@ -62,13 +62,10 @@ window.addEventListener('message', function (event) {
 });
 
 $('document').ready(function () {
-    console.log(window.parent);
     if (window.parent != null) {
         function sendCallBack(callback) {
             window.parent.postMessage(callback, "*");
-            console.log("ready sent");
         }
-
         sendCallBack("ready");
     }
 });
