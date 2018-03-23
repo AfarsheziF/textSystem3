@@ -14,7 +14,7 @@ var mySketch = function (p) {
         p.createCanvas(skatchWidth, skatchHeight, "WEBGL").parent('sketch-holder');
 
         p.physics = new VerletPhysics2D();
-        p.physics.setDrag(0.05);
+        p.physics.setDrag(globalVar.drag);
         p.physics.setWorldBounds(p.rect(0, 0, p.width, p.height));
 
         p.system = new System(p);
