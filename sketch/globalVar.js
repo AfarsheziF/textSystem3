@@ -1,6 +1,8 @@
 ﻿
 function GlobalVar() {
 
+    this.drag = 0.05;
+    
     this.particleForce = -0.2;
     this.particleRadius = 0.5;
     this.particleJitter = 0.2;
